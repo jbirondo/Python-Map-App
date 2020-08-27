@@ -19,7 +19,7 @@ def dynamic_color(elevation):
         return "red"
 
 for lt, ln, ele in zip(lat, lon, elev):
-    fg.add_child(folium.CircleMarker(location=[lt, ln], popup=str(ele), icon=folium.Icon(color=dynamic_color(ele))))
+    fg.add_child(folium.CircleMarker(location=[lt, ln], popup=str(ele), fill=True, fill_color=dynamic_color(ele)))
 
 
 
