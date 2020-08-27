@@ -37,8 +37,6 @@ fg.add_child(folium.GeoJson(data=open(
                               else 'red'}
     ))
 
-
-
 map.add_child(fg)
-
+map.add_child(folium.LayerControl())
 map.save("Map1.html")
