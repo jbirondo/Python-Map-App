@@ -8,7 +8,8 @@ lat = list(data["LAT"])
 lon = list(data["LON"])
 elev = list(data["ELEV"])
 
-fg = folium.FeatureGroup(name="My Map")
+fgv = folium.FeatureGroup(name="Vocanoes")
+fgp = folium.FeatureGroup(name="Population")
 
 def dynamic_color(elevation):
     if elevation < 1000:
@@ -19,7 +20,7 @@ def dynamic_color(elevation):
         return "red"
 
 for lt, ln, ele in zip(lat, lon, elev):
-    fg.add_child(folium.CircleMarker(location=[lt, ln], 
+    fgv.add_child(folium.CircleMarker(location=[lt, ln], 
         popup=str(ele), 
         fill=True, 
         color=dynamic_color(ele), 
@@ -28,7 +29,8 @@ for lt, ln, ele in zip(lat, lon, elev):
         fill_opacity=1.0
     ))
 
-fg.add_child(folium.GeoJson(data=open(
+
+fgp.add_child(folium.GeoJson(data=open(
     "world.json",
     'r',
     encoding="utf-8-sig").read(),
@@ -37,6 +39,8 @@ fg.add_child(folium.GeoJson(data=open(
                               else 'red'}
     ))
 
-map.add_child(fg)
+map.add_child(fgp)
+map.add_child(fgv)
 map.add_child(folium.LayerControl())
+
 map.save("Map1.html")
