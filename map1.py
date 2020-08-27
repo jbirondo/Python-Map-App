@@ -1,4 +1,6 @@
 import folium
+import pandas 
+
 map = folium.Map(location=[38.58, -99.09], zoom_start=6, tiles="Stamen Terrain")
 
 fg = folium.FeatureGroup(name="My Map")
