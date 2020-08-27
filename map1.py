@@ -8,7 +8,7 @@ lat = list(data["LAT"])
 lon = list(data["LON"])
 elev = list(data["ELEV"])
 
-fgv = folium.FeatureGroup(name="Vocanoes")
+fgv = folium.FeatureGroup(name="US Vocanoes")
 fgp = folium.FeatureGroup(name="Population")
 
 def dynamic_color(elevation):
