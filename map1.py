@@ -28,6 +28,7 @@ for lt, ln, ele in zip(lat, lon, elev):
         fill_opacity=1.0
     ))
 
+fg.add_child(folium.GeoJson("world.json"))
 
 
 map.add_child(fg)
