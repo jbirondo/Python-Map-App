@@ -2,6 +2,7 @@ import folium
 import pandas 
 
 map = folium.Map(location=[38.58, -99.09], zoom_start=6, tiles="Stamen Terrain")
+data = pandas.read_csv("Volcanoes.txt")
 
 fg = folium.FeatureGroup(name="My Map")
 
