@@ -9,8 +9,8 @@ lon = list(data["LON"])
 
 fg = folium.FeatureGroup(name="My Map")
 
-for coordinates in [[38.2, -99.1],[37.2, -97.1]]:
-    fg.add_child(folium.Marker(location=coordinates, popup="Hi, I'm a marker", icon=folium.Icon(color="green")))
+for lt, ln in zip(lat, lon):
+    fg.add_child(folium.Marker(location=[lt, ln], popup="Hi, I'm a marker", icon=folium.Icon(color="green")))
 
 map.add_child(fg)
 
