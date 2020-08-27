@@ -10,8 +10,16 @@ elev = list(data["ELEV"])
 
 fg = folium.FeatureGroup(name="My Map")
 
+def dynamic_color(elevation):
+    if elevation < 1000:
+        return "green"
+    elif 1000<= elevation < 3000:
+        return "orange"
+    else:
+        return "red"
+
 for lt, ln, ele in zip(lat, lon, elev):
-    fg.add_child(folium.Marker(location=[lt, ln], popup=ele, icon=folium.Icon(color="green")))
+    fg.add_child(folium.Marker(location=[lt, ln], popup=str(ele), icon=folium.Icon(color=dynamic_color(ele))))
 
 map.add_child(fg)
 
