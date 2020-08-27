@@ -6,11 +6,12 @@ data = pandas.read_csv("Volcanoes.txt")
 
 lat = list(data["LAT"])
 lon = list(data["LON"])
+elev = list(data["ELEV"])
 
 fg = folium.FeatureGroup(name="My Map")
 
-for lt, ln in zip(lat, lon):
-    fg.add_child(folium.Marker(location=[lt, ln], popup="Hi, I'm a marker", icon=folium.Icon(color="green")))
+for lt, ln, ele in zip(lat, lon, elev):
+    fg.add_child(folium.Marker(location=[lt, ln], popup=ele, icon=folium.Icon(color="green")))
 
 map.add_child(fg)
 
